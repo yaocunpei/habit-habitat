@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+
+<link href="../static/css/index.css" th:href="@{/css/index.css}" type="text/css" rel="stylesheet"/>
+<link href="../static/css/index.css" type="text/css" rel="stylesheet"/>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>习惯栖息地-打卡推荐</title>
+</head>
+
+<body>
+<div>
+	<div class="head">
+		<span class="logo">习惯栖息地</span>
+		<div class="topclick">
+			<div class="ltbox1 ">
+				<img src="../static/img/mean.png" th:src="@{img/mean.png}" style="height: 30px; width: 30px;">
+			</div>
+			<ul class="ltbox2">
+				<li class="lit"><a href="index">主页</a></li>
+				<li><a href="user">个人信息</a></li>
+				<li><a href="habit">习惯管理</a></li>
+				<li><a href="clock">每日签到</a></li>
+				<li class="lib"><a href="login">退出登录</a></li>
+			</ul>
+		</div>
+
+	</div>
+	<div class='table_box_index'>
+		<h1>打卡推荐</h1>
+		<div class="habit">
+			<div class="habit_box" id="1">
+				<div class="habit_head">
+					<h3 >健身达人</h3>
+				</div>
+
+				<div class="habit_p">
+					<span>每天都会去健身房锻炼身体，保持健康的生活方式。</span>
+				</div>
+
+				<a href="">more</a>
+			</div>
+			<div class="habit_box" id="1">
+				<div class="habit_head">
+					<h3 >美食家</h3>
+				</div>
+
+				<div class="habit_p">
+					<span>每天都会尝试新的美食，探索不同的口味。</span>
+				</div>
+
+				<a href="">more</a>
+			</div>
+			<div class="habit_box" id="1">
+				<div class="habit_head">
+					<h3 >社交达人</h3>
+				</div>
+
+				<div class="habit_p">
+					<span>每天都会与朋友和家人保持联系，分享彼此的生活和经验。</span>
+				</div>
+
+				<a href="">more</a>
+			</div>
+
+			<div class="habit_box" id="1">
+				<div class="habit_head">
+					<h3 >加油，奥里给！</h3>
+				</div>
+
+				<div class="habit_p">
+					<span>每天照着镜子对自己说加油，奥里给！</span>
+				</div>
+
+				<a href="">more</a>
+			</div>
+
+
+		</div>
+
+	</div>
+</div>
+
+</body>
+<script src="../static/js/habit.js" th:src="@{/js/habit.js}"></script>
+
+</html>

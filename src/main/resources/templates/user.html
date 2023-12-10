@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+
+<link href="../static/css/index.css" th:href="@{/css/index.css}" type="text/css" rel="stylesheet"/>
+<link href="../static/css/index.css" type="text/css" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>习惯栖息地-个人信息</title>
+</head>
+<style>
+
+</style>
+<body>
+<div>
+    <div class="head">
+        <span class="logo">习惯栖息地</span>
+        <div class="topclick">
+            <div class="ltbox1 ">
+                <img src="../static/img/mean.png" th:src="@{img/mean.png}" style="height: 30px; width: 30px;">
+            </div>
+            <ul class="ltbox2">
+                <li class="lit"><a href="index">主页</a></li>
+                <li><a href="user">个人信息</a></li>
+                <li><a href="habit">习惯管理</a></li>
+                <li><a href="clock">每日签到</a></li>
+                <li class="lib"><a href="login">退出登录</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <div class='table_box_index'>
+        <h1>个人信息</h1>
+        <section id="profile" class="user">
+            <p id="name">姓 名：张三</p>
+            <p id="email">邮 箱：zhangsan@example.com</p>
+            <p id="phone">电 话：138-xxxx-xxxx</p>
+            <p id="gender">性 别：男</p>
+<!--            <p id="age">年 龄：25岁</p>-->
+            <p id="summary">简 介：这是一个热爱编程的年轻人，拥有丰富的编程经验和扎实的技术功底。</p>
+        </section>
+        <div class="habit_history_button">
+            <button>返回</button>
+            <button>修改</button>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

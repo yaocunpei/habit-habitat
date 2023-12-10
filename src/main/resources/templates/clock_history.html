@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+
+<link href="../static/css/index.css" rel="stylesheet" th:href="@{/css/index.css}" type="text/css"/>
+<link href="../static/css/index.css" rel="stylesheet" type="text/css"/>
+<link href="../static/css/day.css" rel="stylesheet" th:href="@{/css/day.css}" type="text/css"/>
+<link href="../static/css/day.css" rel="stylesheet" type="text/css"/>
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>习惯栖息地-签到历史</title>
+</head>
+
+<body>
+<div>
+  <div class="head">
+    <span class="logo">习惯栖息地</span>
+    <div class="topclick">
+      <div class="ltbox1 ">
+        <img src="../static/img/mean.png" style="height: 30px; width: 30px;" th:src="@{img/mean.png}">
+      </div>
+      <ul class="ltbox2">
+        <li class="lit"><a href="index">主页</a></li>
+        <li><a href="user">个人信息</a></li>
+        <li><a href="habit">习惯管理</a></li>
+        <li><a href="clock">每日签到</a></li>
+        <li class="lib"><a href="login">退出登录</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class='table_box_index'>
+      <h1>签到历史</h1>
+    <div class="calendar">
+      <div class="title">
+        <h1 class="green" id="calendar-title">Month</h1>
+        <h2 class="green" id="calendar-year">Year</h2>
+        <a href="" id="pre"></a>
+        <a href="" id="next"></a>
+      </div>
+
+      <div class="body">
+        <div class="day body-list">
+          <!--使用无序列表标签显示星期-->
+          <ul>
+            <li>日</li>
+            <li>一</li>
+            <li>二</li>
+            <li>三</li>
+            <li>四</li>
+            <li>五</li>
+            <li>六</li>
+          </ul>
+        </div>
+        <!--使用无序列表标签显示日期，日期使用JavaScript动态获取，然后使用innerHTML设置<ul>标签之间的HTML-->
+        <div class="darkgrey body-list">
+          <ul id="days">
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="../static/js/day.js" th:src="@{/js/day.js}"></script>
+</html>

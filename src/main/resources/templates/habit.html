@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+
+<link href="../static/css/index.css" th:href="@{/css/index.css}" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"/>
+<link href="../static/css/fqa.css" th:href="@{/css/fqa.css}" type="text/css" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>习惯栖息地-主页</title>
+</head>
+
+<body>
+<div>
+    <div class="head">
+        <span class="logo">习惯栖息地</span>
+        <div class="topclick">
+            <div class="ltbox1 ">
+                <img src="../static/img/mean.png" th:src="@{img/mean.png}" style="height: 30px; width: 30px;">
+            </div>
+            <ul class="ltbox2">
+                <li class="lit"><a href="index">主页</a></li>
+                <li><a href="user">个人信息</a></li>
+                <li><a href="habit">习惯管理</a></li>
+                <li><a href="clock">每日签到</a></li>
+                <li class="lib"><a href="login">退出登录</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <div class='table_box_index'>
+        <h1>习惯养成</h1>
+        <div class="faq-container">
+            <div class="faq active">
+                <h3 class="faq-title">
+                    每日一读
+                </h3>
+
+                <p class="faq-text">
+                    每天读一小时书
+                </p>
+
+                <button class="faq-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="faq">
+                <h3 class="faq-title">
+                    背英语单词
+                </h3>
+                <p class="faq-text">
+                    每天100个四六级单词
+                </p>
+                <button class="faq-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="faq">
+                <h3 class="faq-title">
+                    看小迪网课
+                </h3>
+                <p class="faq-text">
+                    每日至少看一集网课
+                </p>
+                <button class="faq-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="faq">
+                <h3 class="faq-title">
+                    跑步
+                </h3>
+                <p class="faq-text">
+                    每天跑1km
+                </p>
+                <button class="faq-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="faq">
+                <h3 class="faq-title">
+                    早起
+                </h3>
+                <p class="faq-text">
+                    8点起床
+                </p>
+                <button class="faq-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/fqa.js" th:src="@{/js/fqa.js}"></script>
+</div>
+
+</body>
+
+</html>

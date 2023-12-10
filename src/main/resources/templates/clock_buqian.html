@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+
+<link href="../static/css/index.css" rel="stylesheet" th:href="@{/css/index.css}" type="text/css"/>
+<link href="../static/css/index.css" rel="stylesheet" type="text/css"/>
+<link href="../static/css/day.css" rel="stylesheet" th:href="@{/css/day.css}" type="text/css"/>
+<link href="../static/css/day.css" rel="stylesheet" type="text/css"/>
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>习惯栖息地-签到</title>
+</head>
+<style>
+
+</style>
+<body>
+<div>
+    <div class="head">
+        <span class="logo">习惯栖息地</span>
+        <div class="topclick">
+            <div class="ltbox1 ">
+                <img src="../static/img/mean.png" style="height: 30px; width: 30px;" th:src="@{img/mean.png}">
+            </div>
+            <ul class="ltbox2">
+                <li class="lit"><a href="index">主页</a></li>
+                <li><a href="user">个人信息</a></li>
+                <li><a href="habit">习惯管理</a></li>
+                <li><a href="clock">每日签到</a></li>
+                <li class="lib"><a href="login">退出登录</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <div class='table_box_clock'>
+        <h1>今日签到</h1>
+        <div class="select_wrap" id="selectWrap">
+            <select id="selectElem">
+                <option value="1">每日一读</option>
+                <option value="2">背英语四六级单词</option>
+                <option value="3">看小迪网课</option>
+                <option value="4">跑步</option>
+                <option value="5">早起</option>
+            </select>
+            <input type="date" name="开始日期" value=""   required/>
+        </div>
+
+        <div class="habit_history_button">
+
+            <button>签到</button>
+            <button>请假</button>
+            <!--                        <button>打卡历史</button>-->
+        </div>
+    </div>
+</div>
+</body>
+<script src="../static/js/day.js" th:src="@{/js/day.js}"></script>
+</html>
