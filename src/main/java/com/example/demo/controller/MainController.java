@@ -14,6 +14,8 @@ public class MainController {
 
     @Resource
     public   UserManagerService userManagerService;
+    @Resource
+    public String id;
 
     @RequestMapping("/")
     public String home() {
@@ -109,6 +111,10 @@ public class MainController {
 
     @RequestMapping("/habit")
     public String habit(Model model,HttpSession session){
+
+        String id = (String) session.getAttribute("id");
+
+
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
         if (loggedIn != null && loggedIn) {
             // 用户已登录，返回受保护的页面
