@@ -19,7 +19,7 @@ public class UserSignServiceImpl implements UserSignService{
             // ID不存在，执行插入操作
             int rowsAffected = userDao.registerUser(stunum,stuphone,pw,stuname);
             if(rowsAffected == 1){
-                res = "alert('用户注册成功，即将返回登录页面！');window.open(\"/login\");";
+                res = "alert('用户注册成功，即将返回登录页面！');window.location(\"/login\");";
                 return res;
             }
         } else {

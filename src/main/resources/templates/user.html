@@ -34,16 +34,17 @@
     <div class='table_box_index'>
         <h1>个人信息</h1>
         <section id="profile" class="user">
-            <p id="name">姓 名：张三</p>
-            <p id="email">邮 箱：zhangsan@example.com</p>
-            <p id="phone">电 话：138-xxxx-xxxx</p>
-            <p id="gender">性 别：男</p>
+            <p id="name" th:text="'姓 名：'+${name}">姓 名：张三</p>
+            <p id="email" th:text="'邮 箱：'+${email}">邮 箱：zhangsan@example.com</p>
+            <p id="phone" th:text="'电 话：'+${phone}">电 话：138-xxxx-xxxx</p>
+            <p id="gender" th:text="'性 别：'+${gender}">性 别：男</p>
 <!--            <p id="age">年 龄：25岁</p>-->
-            <p id="summary">简 介：这是一个热爱编程的年轻人，拥有丰富的编程经验和扎实的技术功底。</p>
+            <p id="biography"   style="width:60px;float: left">简 介：</p>
+            <span th:text="${biography}" style="width:440px;display: inline-block;">这是一个热爱编程的年轻人，拥有丰富的编程经验和扎实的技术功底。</span>
         </section>
         <div class="habit_history_button">
-            <button>返回</button>
-            <button>修改</button>
+            <button onclick="location.href='/index';">返回</button>
+            <button onclick="location.href='/user_edit';">编辑</button>
         </div>
     </div>
 </div>

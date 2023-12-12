@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserDao {
     User getUserById(String id);
     int registerUser(String stunum, String stuphone, String pw, String stuname);
+    int editUser(User user,String id);
 }

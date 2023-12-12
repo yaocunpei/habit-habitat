@@ -9,5 +9,15 @@
     <insert  id="registerUser" >
         INSERT INTO user(id, name, phone, passwd,status) VALUES (#{stunum},#{stuname},#{stuphone},#{pw},1)
     </insert >
+
+    <update id="editUser" parameterType="com.example.demo.model.User">
+        UPDATE user
+        SET name = #{user.name},
+            email = #{user.email},
+            gender = #{user.gender},
+            biography = #{user.biography},
+            phone = #{user.phone}
+        WHERE id = #{id}
+    </update>
 </mapper>
 

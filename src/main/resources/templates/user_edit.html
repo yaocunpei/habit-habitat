@@ -37,28 +37,30 @@
         <h1>编辑个人信息</h1>
         <div class="info-page">
 
-            <form id="modify-form">
-                <label for="name-input">姓名：</label>
-                <input type="text" id="name-input" name="name" required value="张三">
+            <div id="modify-form">
+                <label for="name">姓名：</label>
+                <input type="text" id="name" name="name" required th:value="${name}" value="张三">
 
-                <label for="email-input">邮箱：</label>
-                <input type="text" id="email-input" name="email" required value="zhangsan@example.com">
+                <label for="email">邮箱：</label>
+                <input type="text" id="email" name="email" required th:value="${email}" value="zhangsan@example.com">
 
-                <label for="age-input">性别：</label>
-                <input type="text" id="age-input" name="sex" required value="男">
+                <label for="gender">性别：</label>
+                <input type="text" id="gender" name="gender" required th:value="${gender}" value="男">
 
-                <label for="contact-input">联系方式：</label>
-                <input type="text" id="contact-input" name="contact" required value="138-xxxx-xxxx">
+                <label for="phone">联系方式：</label>
+                <input type="text" id="phone" name="phone" required th:value="${phone}" value="138-xxxx-xxxx">
 
-                <label for="summary-input">简介：</label>
-                <textarea name="描述" cols="40" rows="3"  id="summary-input" >这是一个热爱编程的年轻人，拥有丰富的编程经验和扎实的技术功底。</textarea>
+                <label for="biography">简介：</label>
+                <textarea name="描述" cols="40" rows="3"  id="biography"  th:text="${biography}">这是一个热爱编程的年轻人，拥有丰富的编程经验和扎实的技术功底。</textarea>
                 <br>
-                <button type="submit" class="modify-btn">返回</button>
-                <button type="submit" class="modify-btn">提交修改</button>
-            </form>
+                <button type="submit" class="modify-btn" onclick="location.href='/user';">返回</button>
+                <button type="submit" class="modify-btn" id="edituser" >确认修改</button>
+            </div>
         </div>
     </div>
 </div>
+<script src="../static/js/edituser.js" th:src="@{/js/edituser.js}"></script>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 
 </body>
 
