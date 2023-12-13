@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Habit;
 import com.example.demo.model.User;
+import com.example.demo.service.HabitManagerService;
 import com.example.demo.service.UserManagerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,18 +10,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class MainController {
 
     @Resource
-    public   UserManagerService userManagerService;
+    public UserManagerService userManagerService;
     @Resource
+    public HabitManagerService habitManagerService;
+
     public String id;
+    public User user;
+    public List<Habit> habit;
 
     @RequestMapping("/")
     public String home() {
-        return "login"; // 返回默认视图名称
+        return "index"; // 返回默认视图名称
     }
 //    登录页面
     @RequestMapping("/login")
@@ -38,9 +45,11 @@ public class MainController {
 //    首页
     @RequestMapping("/index")
     public String index(Model model,HttpSession session){
+
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
         if (loggedIn != null && loggedIn) {
             // 用户已登录，返回受保护的页面
+            this.id = (String) session.getAttribute("id");
             return "index";
         } else {
             // 用户未登录，重定向到登录页面
@@ -52,7 +61,7 @@ public class MainController {
     @RequestMapping("/user")
     public String user(Model model,HttpSession session){
 
-        User user = userManagerService.loadUserByUsername((String) session.getAttribute("id"));
+        user = userManagerService.loadUserByUsername(this.id);
 
 //        性别
         String gender;
@@ -85,7 +94,7 @@ public class MainController {
     public String user_edit(Model model,HttpSession session){
 
 
-        User user = userManagerService.loadUserByUsername((String) session.getAttribute("id"));
+        user = userManagerService.loadUserByUsername(this.id);
 //        性别
         String gender;
         if(user.getGender() == 1){
@@ -110,13 +119,22 @@ public class MainController {
     }
 
     @RequestMapping("/habit")
-    public String habit(Model model,HttpSession session){
-
-        String id = (String) session.getAttribute("id");
-
-
+    public String habit(Model model, HttpSession session) {
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
         if (loggedIn != null && loggedIn) {
+
+            String userId = (String) session.getAttribute("id");
+            // 用户习惯
+            List<Habit> userHabits = habitManagerService.loadHabitByUserid(userId);
+
+            if (userHabits != null && !userHabits.isEmpty()) {
+                // 将用户习惯返回前端
+                model.addAttribute("habits", userHabits);
+            } else {
+                // 如果没有找到习惯，处理空值情况
+                System.out.println("No habits found for user ID: " + userId);
+            }
+
             // 用户已登录，返回受保护的页面
             return "habit";
         } else {
@@ -124,6 +142,7 @@ public class MainController {
             return "redirect:/login";
         }
     }
+
 
     @RequestMapping("/habit_edit")
     public String habit_edit(Model model,HttpSession session){
