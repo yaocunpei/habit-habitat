@@ -6,6 +6,15 @@
         select * from habit where user_id = #{id}
     </select>
 
+    <update id="editHabit"  parameterType="com.example.demo.model.Habit">
+        UPDATE user
+        SET name = #{habit.name},
+            description = #{habit.description},
+            start_date = #{habit.start_date},
+            end_date = #{habit.end_date}
+        WHERE
+            habit_id = #{habit.habit_id}
+    </update>
 
 </mapper>
 

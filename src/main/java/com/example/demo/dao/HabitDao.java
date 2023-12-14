@@ -8,4 +8,5 @@ import java.util.List;
 @Mapper
 public interface HabitDao {
     List<Habit> getHabitById(String id);
+    int editHabit(Habit habit);
 }

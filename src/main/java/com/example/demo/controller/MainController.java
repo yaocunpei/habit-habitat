@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Habit;
+import com.example.demo.model.HabitReferral;
 import com.example.demo.model.User;
 import com.example.demo.service.HabitManagerService;
 import com.example.demo.service.UserManagerService;
@@ -172,6 +173,8 @@ public class MainController {
     public String habit_referral(Model model,HttpSession session){
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
         if (loggedIn != null && loggedIn) {
+            List<HabitReferral> habitReferrals = habitManagerService.loadHabitReferralByUserid();
+            model.addAttribute("habitReferrals",habitReferrals);
             // 用户已登录，返回受保护的页面
             return "habit_referral";
         } else {
