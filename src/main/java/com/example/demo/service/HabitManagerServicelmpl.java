@@ -18,18 +18,30 @@ public class HabitManagerServicelmpl implements HabitManagerService{
     public  HabitDao habitDao;
     @Resource
     public HabitReferralDao habitReferralDao;
-    public List<Habit> loadHabitByUserid(String id){
-        habit = habitDao.getHabitById(id);
+    public List<Habit> loadHabitByUserid(String User_id){
+        habit = habitDao.getHabitByUserId(User_id);
         return habit;
     }
 
+    public Habit loadHabitByHabitid(String habit_id){
+        Habit habit1;
+        habit1 = habitDao.getHabitByHabitID(habit_id);
+        return habit1;
+    }
     public List<HabitReferral> loadHabitReferralByUserid(){
         habitReferrals = habitReferralDao.getHabitReferralById();
         return habitReferrals;
     }
 
-    public String editHabit(String habit_id){
+    public String editHabit(Habit habit){
         String res;
-        return res="";
+        int rowsAffected = habitDao.editHabit(habit);
+        if (rowsAffected > 0 ){
+            res = "alert('修改成功');window.location.href = '/habit';";
+            return res;
+        }else{
+            res="alert('修改失败');";
+            return res;
+        }
     }
 }

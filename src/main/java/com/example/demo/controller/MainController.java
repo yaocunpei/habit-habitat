@@ -8,6 +8,7 @@ import com.example.demo.service.UserManagerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -146,9 +147,21 @@ public class MainController {
 
 
     @RequestMapping("/habit_edit")
-    public String habit_edit(Model model,HttpSession session){
+    public String habit_edit(Model model, @RequestParam(value = "id", required = false) String habit_id, HttpSession session){
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
+        Habit habit1;
         if (loggedIn != null && loggedIn) {
+            if (habit_id != null){
+                habit1 = habitManagerService.loadHabitByHabitid(habit_id);
+                model.addAttribute("habit",habit1);
+
+            }else {
+                String userId = (String) session.getAttribute("id");
+                // 用户习惯
+                List<Habit> userHabits = habitManagerService.loadHabitByUserid(userId);
+                model.addAttribute("habit",userHabits.get(0));
+            }
+
             // 用户已登录，返回受保护的页面
             return "habit_edit";
         } else {

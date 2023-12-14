@@ -37,30 +37,30 @@
             <table style="margin:30px auto ;margin-top:10px;width: 380px" class="sgint">
                 <tr>
                     <td style="text-align:justify;text-justify:distribute-all-lines;text-align-last:justify">习惯名称:</td>
-                    <td>每日一读<br></td>
+                    <td th:text="${habit.getName()}">每日一读<br></td>
                 </tr>
                 <tr>
                     <td style="text-align:justify;text-justify:distribute-all-lines;text-align-last:justify">开始日期:</td>
-                    <td><input type="date" name="开始日期" value="2023-12-02"  form="" required/><br></td>
+                    <td><input type="date" name="开始日期" th:value="${habit.getStart_date()}" value="2023-12-02"  form="" required/><br></td>
                 </tr>
                 <tr>
                     <td style="text-align:justify;text-justify:distribute-all-lines;text-align-last:justify">结束日期:</td>
-                    <td><input type="date" name="结束日期" value="2023-12-10"  form="" /><br></td>
+                    <td><input type="date" name="结束日期"  th:value="${habit.getEnd_date()}" value="2023-12-10"  form="" /><br></td>
                 </tr>
                 <tr>
                     <td style="text-align:justify;text-justify:distribute-all-lines;text-align-last:justify" >打卡频率:</td>
-                    <td><input type="text" name="打卡频率" value="每日"  form="" /><br></td>
+                    <td><input type="text" name="打卡频率" value="每日"   /><br></td>
                 </tr>
 
                 <tr>
                     <td style="text-align:justify;text-justify:distribute-all-lines;text-align-last:justify">描述:</td>
-                    <td><textarea name="描述" cols="29" rows="3" form="">每天读一小时书</textarea><br></td>
+                    <td><textarea name="描述" cols="29" rows="3"  th:text="${habit.getDescription()}">每天读一小时书</textarea><br></td>
                 </tr>
             </table>
 
             <div class="habit_history_button">
                 <button>返回</button>
-                <button>确认</button>
+                <button th:id="${habit.getHabit_id()}">确认</button>
                 <button>删除</button>
             </div>
 

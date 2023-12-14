@@ -2,8 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.HabitDao">
 
-    <select id="getHabitById" resultType="com.example.demo.model.Habit">
+    <select id="getHabitByUserId" resultType="com.example.demo.model.Habit">
         select * from habit where user_id = #{id}
+    </select>
+
+    <select id="getHabitByHabitID" resultType="com.example.demo.model.Habit">
+        select * from habit where Habit_id = #{id}
     </select>
 
     <update id="editHabit"  parameterType="com.example.demo.model.Habit">

@@ -7,6 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface HabitDao {
-    List<Habit> getHabitById(String id);
+    List<Habit> getHabitByUserId(String id);
+    Habit getHabitByHabitID(String habit_id);
     int editHabit(Habit habit);
 }
