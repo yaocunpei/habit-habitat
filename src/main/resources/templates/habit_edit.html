@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 
 <link href="../static/css/index.css" th:href="@{/css/index.css}" type="text/css" rel="stylesheet"/>
-<link href="../static/css/index.css" type="text/css" rel="stylesheet"/>
+<!--<link href="../static/css/index.css" type="text/css" rel="stylesheet"/>-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,11 +41,11 @@
                 </tr>
                 <tr>
                     <td style="text-align:justify;text-justify:distribute-all-lines;text-align-last:justify">开始日期:</td>
-                    <td><input type="date" name="开始日期" th:value="${habit.getStart_date()}" value="2023-12-02"  form="" required/><br></td>
+                    <td><input type="date" name="开始日期" th:value="${#dates.format(habit.getStart_date(), 'yyyy-MM-dd')}" value="2023-12-02"  form="" required/><br></td>
                 </tr>
                 <tr>
                     <td style="text-align:justify;text-justify:distribute-all-lines;text-align-last:justify">结束日期:</td>
-                    <td><input type="date" name="结束日期"  th:value="${habit.getEnd_date()}" value="2023-12-10"  form="" /><br></td>
+                    <td><input type="date" name="结束日期"  th:value="${#dates.format(habit.getEnd_date(), 'yyyy-MM-dd')}" value="2023-12-10"  form="" /><br></td>
                 </tr>
                 <tr>
                     <td style="text-align:justify;text-justify:distribute-all-lines;text-align-last:justify" >打卡频率:</td>
@@ -60,7 +60,7 @@
 
             <div class="habit_history_button">
                 <button>返回</button>
-                <button th:id="${habit.getHabit_id()}">确认</button>
+                <button th:id="${habit.getHabit_id()}" onclick="habit_edit(this)">确认</button>
                 <button>删除</button>
             </div>
 
@@ -68,5 +68,7 @@
     </div>
 
 </body>
+<script src="../static/js/edithabit.js" th:src="@{/js/edithabit.js}"></script>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 
-</html>
+</div></html>
