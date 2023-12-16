@@ -150,13 +150,22 @@ public class MainController {
     public String habit_edit(Model model, @RequestParam(value = "id", required = false) String habit_id, HttpSession session){
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
         Habit habit1;
+        String userId = (String) session.getAttribute("id");
         if (loggedIn != null && loggedIn) {
-            if (habit_id != null){
-                habit1 = habitManagerService.loadHabitByHabitid(habit_id);
-                model.addAttribute("habit",habit1);
+            if (habit_id != null ){
+                habit1 = habitManagerService.loadHabitByHabitid(habit_id,userId);
+
+                if(habit1 == null){
+                    System.out.println("id为空");
+                    List<Habit> userHabits = habitManagerService.loadHabitByUserid(userId);
+                    model.addAttribute("habit",userHabits.get(0));
+                }else{
+                    model.addAttribute("habit", habit1);
+                }
+
 
             }else {
-                String userId = (String) session.getAttribute("id");
+
                 // 用户习惯
                 List<Habit> userHabits = habitManagerService.loadHabitByUserid(userId);
                 model.addAttribute("habit",userHabits.get(0));

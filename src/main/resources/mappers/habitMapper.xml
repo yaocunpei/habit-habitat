@@ -7,7 +7,10 @@
     </select>
 
     <select id="getHabitByHabitID" resultType="com.example.demo.model.Habit">
-        select * from habit where Habit_id = #{id}
+        select * from habit
+                 where
+                     Habit_id = #{habit_id} and
+                     user_id = #{user_id}
     </select>
 
     <update id="editHabit"  parameterType="com.example.demo.model.Habit">
@@ -17,8 +20,14 @@
             start_date = #{start_date},
             end_date = #{end_date}
         WHERE
-            habit_id = #{habit_id}
+            habit_id = #{habit_id} and
+            user_id = #{user_id}
     </update>
+
+    <insert id="newHabit" parameterType="com.example.demo.model.Habit">
+        INSERT INTO habit (user_id, name, description, start_date, end_date)
+        VALUES (#{user_id}, #{name}, #{description}, #{start_date}, #{end_date})
+    </insert>
 
 
 </mapper>

@@ -23,9 +23,9 @@ public class HabitManagerServicelmpl implements HabitManagerService{
         return habit;
     }
 
-    public Habit loadHabitByHabitid(String habit_id){
+    public Habit loadHabitByHabitid(String habit_id,String user_id){
         Habit habit1;
-        habit1 = habitDao.getHabitByHabitID(habit_id);
+        habit1 = habitDao.getHabitByHabitID(habit_id,user_id);
         return habit1;
     }
     public List<HabitReferral> loadHabitReferralByUserid(){
@@ -44,4 +44,17 @@ public class HabitManagerServicelmpl implements HabitManagerService{
             return res;
         }
     }
+
+    public String newHabit(Habit habit){
+        String res;
+        int rowsAffected = habitDao.newHabit(habit);
+        if (rowsAffected > 0 ){
+            res = "alert('添加成功');window.location.href = '/habit';";
+            return res;
+        }else{
+            res="alert('添加失败');";
+            return res;
+        }
+    }
+
 }

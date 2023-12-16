@@ -47,10 +47,7 @@
                     <td style="text-align:justify;text-justify:distribute-all-lines;text-align-last:justify">结束日期:</td>
                     <td><input type="date" name="结束日期" value=""  form="" /><br></td>
                 </tr>
-                <tr>
-                    <td style="text-align:justify;text-justify:distribute-all-lines;text-align-last:justify" >打卡频率:</td>
-                    <td><input type="text" name="打卡频率" value=""  form="" /><br></td>
-                </tr>
+
 
                 <tr>
                     <td style="text-align:justify;text-justify:distribute-all-lines;text-align-last:justify">描述:</td>
@@ -60,12 +57,14 @@
 
         <div class="habit_history_button">
             <button>返回</button>
-            <button>确认</button>
+            <button onclick="newhabit()">添加</button>
         </div>
 
     </div>
 </div>
 
 </body>
+<script src="../static/js/newhabit.js" th:src="@{/js/newhabit.js}"></script>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 
 </html>

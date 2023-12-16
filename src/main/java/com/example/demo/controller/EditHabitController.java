@@ -31,8 +31,32 @@ public class EditHabitController {
         habit.setStart_date(startdate);
         habit.setEnd_date(enddate);
         habit.setDescription(description);
+        habit.setUser_id((String) session.getAttribute("id"));
 
         res = habitManagerService.editHabit(habit);
+        return  res;
+    }
+
+    @PostMapping("/newhabit")
+    @ResponseBody
+    String newhabit(
+            String name,
+            @RequestParam("startdate") @DateTimeFormat(pattern="yyyy-MM-dd") Date startdate,
+            @RequestParam("enddate") @DateTimeFormat(pattern="yyyy-MM-dd")Date enddate,
+            String description,
+            HttpSession session
+    )
+    {
+        String res;
+        String user_id = (String) session.getAttribute("id");
+        Habit habit = new Habit();
+        habit.setUser_id(user_id);
+        habit.setName(name);
+        habit.setStart_date(startdate);
+        habit.setEnd_date(enddate);
+        habit.setDescription(description);
+
+        res = habitManagerService.newHabit(habit);
         return  res;
     }
 }
