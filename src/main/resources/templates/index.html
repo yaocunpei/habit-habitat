@@ -36,13 +36,13 @@
     <div class='table_box_index'>
         <h1>今日任务</h1>
         <div class="faq-container">
-            <div class="faq active">
-                <h3 class="faq-title">
-                    每日一读
+            <div th:class="${iterStat.index == 0} ? 'faq active' : 'faq'" th:each="habit, iterStat : ${habits}" th:id="${habit.habit_id}">
+                <h3 class="faq-title" th:text="${habit.name}">
+                    习惯名称
                 </h3>
 
-                <p class="faq-text">
-                    每天读一小时书
+                <p class="faq-text" th:text="${habit.description}">
+                    习惯描述
                 </p>
 
                 <button class="faq-toggle">
@@ -51,57 +51,7 @@
                 </button>
             </div>
 
-            <div class="faq">
-                <h3 class="faq-title">
-                    背英语单词
-                </h3>
-                <p class="faq-text">
-                    每天100个四六级单词
-                </p>
-                <button class="faq-toggle">
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
 
-            <div class="faq">
-                <h3 class="faq-title">
-                    看小迪网课
-                </h3>
-                <p class="faq-text">
-                    每日至少看一集网课
-                </p>
-                <button class="faq-toggle">
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-
-            <div class="faq">
-                <h3 class="faq-title">
-                    跑步
-                </h3>
-                <p class="faq-text">
-                    每天跑1km
-                </p>
-                <button class="faq-toggle">
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-
-            <div class="faq">
-                <h3 class="faq-title">
-                    早起
-                </h3>
-                <p class="faq-text">
-                    8点起床
-                </p>
-                <button class="faq-toggle">
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
         </div>
     </div>
     <script src="../static/js/fqa.js" th:src="@{/js/fqa.js}"></script>

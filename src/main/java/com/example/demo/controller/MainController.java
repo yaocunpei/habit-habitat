@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.model.Habit;
 import com.example.demo.model.HabitReferral;
 import com.example.demo.model.User;
+import com.example.demo.service.ClockManagerService;
 import com.example.demo.service.HabitManagerService;
 import com.example.demo.service.UserManagerService;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ public class MainController {
     public UserManagerService userManagerService;
     @Resource
     public HabitManagerService habitManagerService;
+    @Resource
+    public ClockManagerService clockManagerService;
 
     public String id;
     public User user;
@@ -48,9 +51,11 @@ public class MainController {
     @RequestMapping("/index")
     public String index(Model model,HttpSession session){
 
+        List<Habit> habits = clockManagerService.getUnSignedHabitsByUser((String) session.getAttribute("id"));
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
         if (loggedIn != null && loggedIn) {
             // 用户已登录，返回受保护的页面
+            model.addAttribute("habits",habits);
             this.id = (String) session.getAttribute("id");
             return "index";
         } else {

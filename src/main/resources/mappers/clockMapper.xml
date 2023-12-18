@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.ClockDao">
+
+
+
+    <select id="getUnSignedHabitsByUser"  resultType="com.example.demo.model.Habit">
+        SELECT h.*
+        FROM habit h
+                 LEFT JOIN clock c ON h.habit_id = c.habit_id AND c.date = CURDATE()
+        WHERE h.user_id = #{user_id} AND c.habit_id IS NULL
+    </select>
+
+
+</mapper>
+
