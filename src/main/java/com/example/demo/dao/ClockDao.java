@@ -8,4 +8,5 @@ import java.util.List;
 @Mapper
 public interface ClockDao {
     List<Habit> getUnSignedHabitsByUser(String user_id);
+    int attendance(String habit_id , int state);
 }

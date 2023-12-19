@@ -213,7 +213,10 @@ public class MainController {
     @RequestMapping("/clock")
     public String clock(Model model,HttpSession session){
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
+        String userId = (String) session.getAttribute("id");
+        List<Habit> habits = clockManagerService.getUnSignedHabitsByUser(userId);
         if (loggedIn != null && loggedIn) {
+            model.addAttribute("habits",habits);
             // 用户已登录，返回受保护的页面
             return "clock";
         } else {

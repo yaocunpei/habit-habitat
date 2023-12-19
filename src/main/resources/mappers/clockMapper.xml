@@ -11,6 +11,10 @@
         WHERE h.user_id = #{user_id} AND c.habit_id IS NULL
     </select>
 
+    <insert id="attendance" >
+        insert INTO clock (habit_id, state, date)
+            VALUES(#{habit_id},#{state},(DATE_FORMAT(NOW(), '%Y-%m-%d')))
+    </insert>
 
 </mapper>
 

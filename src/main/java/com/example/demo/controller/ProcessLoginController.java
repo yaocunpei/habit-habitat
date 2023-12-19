@@ -18,7 +18,6 @@ public class ProcessLoginController {
     @PostMapping("/processlogin")
     @ResponseBody
     public  String processlogin(String stunum, String stuphone, String pw, HttpSession session){
-        String res =userManagerService.chkuser(stunum,stuphone,pw, session);
-        return res;
+        return userManagerService.chkuser(stunum,stuphone,pw, session);
     }
 }

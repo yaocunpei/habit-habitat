@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-
-import com.example.demo.service.UserManagerService;
-import com.example.demo.service.UserSignService;
+import com.example.demo.service.ClockManagerService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,13 +10,15 @@ import javax.annotation.Resource;
 
 @RestController
 @CrossOrigin
-public class ProcessSignController {
+public class ClockController {
     @Resource
-    UserSignService usersignService;
+    ClockManagerService clockManagerService;
 
-    @PostMapping("/processsign")
+//    签到
+    @PostMapping("/attendance")
     @ResponseBody
-    public  String processsign(String stunum,String stuphone,String pw,String stuname){
-        return usersignService.sign(stunum,stuphone,pw,stuname);
+    String attendance(String habit_id,int state){
+
+        return clockManagerService.attendance(habit_id,state);
     }
 }
