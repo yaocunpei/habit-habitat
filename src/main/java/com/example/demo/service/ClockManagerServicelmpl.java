@@ -29,7 +29,10 @@ public class ClockManagerServicelmpl implements ClockManagerService {
 
         int rowsAffected = clockDao.attendance(habit_id,state);
         if (rowsAffected > 0 ){
-            res = "alert('签到成功!');location.reload();";
+            if(state==1)
+                res = "alert('签到成功!');location.reload();";
+            else
+                res = "alert('请假成功!');location.reload();";
         }else {
             res = "alert('签到失败或已经签过到了')";
         }

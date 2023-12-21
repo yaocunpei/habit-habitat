@@ -6,7 +6,7 @@ public class Clock {
     private int clock_id;
     private int habit_id;
 
-//    1签到，2补签，3请假
+//    1签到，2请假，3补签
     private int state;
     private Date date;
 
