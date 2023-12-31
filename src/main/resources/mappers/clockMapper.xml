@@ -16,5 +16,9 @@
             VALUES(#{habit_id},#{state},(DATE_FORMAT(NOW(), '%Y-%m-%d')))
     </insert>
 
+    <insert id="buqian" >
+        insert INTO clock (habit_id,state, date)
+        VALUES(#{habit_id},3,#{bqdate})
+    </insert>
 </mapper>
 

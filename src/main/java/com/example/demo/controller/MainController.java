@@ -226,6 +226,31 @@ public class MainController {
 
     }
 
+    @RequestMapping("/clock_buqian")
+    public String clock_buqian(Model model, HttpSession session) {
+        Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
+        if (loggedIn != null && loggedIn) {
+
+            String userId = (String) session.getAttribute("id");
+            // 用户习惯
+            List<Habit> userHabits = habitManagerService.loadHabitByUserid(userId);
+
+            if (userHabits != null && !userHabits.isEmpty()) {
+                // 将用户习惯返回前端
+                model.addAttribute("habits", userHabits);
+            } else {
+                // 如果没有找到习惯，处理空值情况
+                System.out.println("No habits found for user ID: " + userId);
+            }
+
+            // 用户已登录，返回受保护的页面
+            return "clock_buqian";
+        } else {
+            // 用户未登录，重定向到登录页面
+            return "redirect:/login";
+        }
+    }
+
     @RequestMapping("/clock_detail")
     public String clock_detail(Model model,HttpSession session){
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
