@@ -158,17 +158,8 @@ public class MainController {
         String userId = (String) session.getAttribute("id");
         if (loggedIn != null && loggedIn) {
             if (habit_id != null ){
-                habit1 = habitManagerService.loadHabitByHabitid(habit_id,userId);
-
-                if(habit1 == null){
-                    System.out.println("id为空");
-                    List<Habit> userHabits = habitManagerService.loadHabitByUserid(userId);
-                    model.addAttribute("habit",userHabits.get(0));
-                }else{
-                    model.addAttribute("habit", habit1);
-                }
-
-
+                habit1 = habitManagerService.loadHabitByHabitid(habit_id);
+                model.addAttribute("habit", habit1);
             }else {
 
                 // 用户习惯
@@ -252,9 +243,24 @@ public class MainController {
     }
 
     @RequestMapping("/clock_detail")
-    public String clock_detail(Model model,HttpSession session){
+    public String clock_detail(Model model, @RequestParam(value = "id", required = false) String habit_id, HttpSession session){
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
+        Habit habit1;
+        String userId = (String) session.getAttribute("id");
         if (loggedIn != null && loggedIn) {
+            if (habit_id != null ){
+                habit1 = habitManagerService.loadHabitByHabitid(habit_id);
+                String[] clock = clockManagerService.detail(habit_id,userId);
+                model.addAttribute("habit", habit1);
+                model.addAttribute("clock", clock);
+
+            }else {
+
+                // 用户习惯
+                List<Habit> userHabits = habitManagerService.loadHabitByUserid(userId);
+                model.addAttribute("habit",userHabits.get(0));
+            }
+
             // 用户已登录，返回受保护的页面
             return "clock_detail";
         } else {
@@ -262,6 +268,7 @@ public class MainController {
             return "redirect:/login";
         }
     }
+
     @RequestMapping("/clock_history")
     public String clock_history(Model model,HttpSession session){
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");

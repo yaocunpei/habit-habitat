@@ -9,8 +9,7 @@
     <select id="getHabitByHabitID" resultType="com.example.demo.model.Habit">
         select * from habit
                  where
-                     Habit_id = #{habit_id} and
-                     user_id = #{user_id}
+                     Habit_id = #{habit_id}
     </select>
 
     <update id="editHabit"  parameterType="com.example.demo.model.Habit">

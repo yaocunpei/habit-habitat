@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface HabitManagerService {
     List<Habit> loadHabitByUserid(String User_id);
-    Habit loadHabitByHabitid(String habit_id ,String userid);
+    Habit loadHabitByHabitid(String habit_id);
     List<HabitReferral> loadHabitReferralByUserid();
     String editHabit(Habit habit);
     String newHabit(Habit habit);

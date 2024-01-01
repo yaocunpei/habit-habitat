@@ -23,9 +23,9 @@ public class HabitManagerServicelmpl implements HabitManagerService{
         return habit;
     }
 
-    public Habit loadHabitByHabitid(String habit_id,String user_id){
+    public Habit loadHabitByHabitid(String habit_id){
         Habit habit1;
-        habit1 = habitDao.getHabitByHabitID(habit_id,user_id);
+        habit1 = habitDao.getHabitByHabitID(habit_id);
         return habit1;
     }
     public List<HabitReferral> loadHabitReferralByUserid(){

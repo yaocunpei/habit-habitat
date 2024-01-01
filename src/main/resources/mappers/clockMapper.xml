@@ -20,5 +20,13 @@
         insert INTO clock (habit_id,state, date)
         VALUES(#{habit_id},3,#{bqdate})
     </insert>
+
+    <select id="getClockNumberByHabit_id" resultType="int">
+        SELECT COUNT(*) FROM clock WHERE habit_id = #{habit_id};
+    </select>
+    
+    <select id="getLocalDateClock" resultType="int">
+        select COUNT(*) from clock where habit_id = #{habit_id} and date = (DATE_FORMAT(NOW(), '%Y-%m-%d'))
+    </select>
 </mapper>
 

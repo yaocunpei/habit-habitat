@@ -34,18 +34,18 @@
     <div class='table_box_index'>
         <h1>签到详情</h1>
         <section id="profile" class="user">
-            <p id="habit">名称：每日一读</p>
-            <p id="datastart">开始时间：2023.12.1</p>
-            <p id="dataend">结束时间：2023.12.10</p>
-            <p id="phone">打卡频率：每日</p>
-            <p id="gender">打卡进度：4/8</p>
-            <p id="state">今日状态：已打卡</p>
-            <p id="summary">简介：每日至少读一小时的书，丰富自己的精神世界</p>
+            <p th:text="'名称：'+${habit.getName()}" id="habit">名称：每日一读</p>
+            <p th:text="'开始时间：'+${#dates.format(habit.getStart_date(), 'yyyy-MM-dd')}" id="datastart">开始时间：2023.12.1</p>
+            <p th:text="'结束时间：'+${#dates.format(habit.getEnd_date(), 'yyyy-MM-dd')}" id="dataend">结束时间：2023.12.10</p>
+            <p  id="">打卡频率：每日</p>
+            <p th:text="'打卡率：'+${clock[0]} +'/' +${clock[1]}" id="gender">打卡进度：4/8</p>
+            <p th:text="'今日状态：'+${clock[2]}" id="state">今日状态：已打卡</p>
+            <p th:text="'简介：'+${habit.getDescription()}" id="summary">简介：每日至少读一小时的书，丰富自己的精神世界</p>
 
         </section>
         <div class="habit_history_button">
             <button>返回</button>
-            <button>修改</button>
+<!--            <button>修改</button>-->
             <button>打卡历史</button>
         </div>
 

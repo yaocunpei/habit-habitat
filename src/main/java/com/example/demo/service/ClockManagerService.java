@@ -12,4 +12,6 @@ public interface ClockManagerService {
      String attendance(String habit_id,int state);
 
      String buqian(String habit_id, Date bqdate);
+
+     String[] detail(String habit_id,String user_id);
 }

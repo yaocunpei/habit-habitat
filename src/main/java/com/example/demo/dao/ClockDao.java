@@ -11,4 +11,8 @@ public interface ClockDao {
     List<Habit> getUnSignedHabitsByUser(String user_id);
     int attendance(String habit_id , int state);
     int buqian(String habit_id, Date bqdate );
+
+    int getClockNumberByHabit_id(String habit_id);
+
+    int getLocalDateClock(String habit_id);
 }
