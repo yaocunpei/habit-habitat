@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>习惯栖息地-签到</title>
+    <title>习惯栖息地-补签</title>
 </head>
 <style>
 
@@ -35,7 +35,7 @@
     </div>
     <div class='table_box_clock'>
         <a href="/index"  class="sign_back">返回</a>
-        <h1>今日签到</h1>
+        <h1>补签</h1>
         <div class="select_wrap" style="margin: 50px auto" id="selectWrap">
             <select id="selectElem">
                 <option th:each="habit : ${habits}"  th:text="${habit.name}" th:value="${habit.habit_id}" value="1">每日一读</option>
